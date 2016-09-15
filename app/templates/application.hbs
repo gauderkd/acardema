@@ -1,0 +1,16 @@
+<h1 id="appTitle">
+  {{#link-to 'index' class="incoglink"}}aCardema{{/link-to}}
+</h1>
+
+<div id="mainMenuBar">
+  <p class="mainMenuItem" id="routeMenuFiles">
+    {{#link-to 'cardview'}}Files{{/link-to}}
+  </p>
+  <div class="mainMenuItem" id="routeMenuAbout">
+    {{#link-to 'about'}}About{{/link-to}}
+  </div>
+  <div class="mainMenuItem" id="routeMenuSource">
+    <a href="https://github.com/gauderkd/acardema" target="_blank">Source</a>
+  </div>
+</div>
+{{outlet}}

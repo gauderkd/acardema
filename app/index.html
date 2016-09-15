@@ -15,11 +15,14 @@
     {{content-for "head-footer"}}
   </head>
   <body>
+    {{content-for "body-header"}}
+
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/acardema.js"></script>
 
     {{content-for "body-footer"}}
+
   </body>
 </html>
