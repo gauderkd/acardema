@@ -1,10 +1,12 @@
-<!-- <h2>Create A Card</h2>
+<h2>Create A Card</h2>
 <form {{action "createNewCard" on="submit"}}>
   <div class="form-group">
     <label>Title</label>
     {{input value=title class="form-control"}}
     <label>Year</label>
     {{input value=year class="form-control"}}
+    <label>Abstract</label>
+    {{input value=abstract class="form-control"}}
   </div>
   <div class="checkbox">
     <label>
@@ -13,7 +15,7 @@
     </label>
   </div>
   <input type="submit" value="Add Card" class="btn btn-primary">
-</form> -->
+</form>
 
 <div class="fileMenu">
   <h2>List of Cards</h2>
@@ -53,5 +55,6 @@
     <div id="cardform">
       <h3 class="cardTitle">Title</h3>
       <h4 class="cardYear">Year</h4>
+      <p class="cardAbstract">Abstract</p>
     </div>
   </div>

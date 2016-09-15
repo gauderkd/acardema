@@ -4,8 +4,8 @@ export default DS.Model.extend({
   // Details
   title       : DS.attr('string'),
   year        : DS.attr('string'),
-  // // Study
-  // abstract    : DS.attr('string'),
+  // Study
+  abstract    : DS.attr('string'),
   // hypothesis  : DS.attr('string'),
   // methods     : DS.attr('string'),
   // results     : DS.attr('string'),
