@@ -1,4 +1,4 @@
-<h2>Create A Card</h2>
+<!-- <h2>Create A Card</h2>
 <form {{action "createNewCard" on="submit"}}>
   <div class="form-group">
     <label>Title</label>
@@ -13,24 +13,24 @@
     </label>
   </div>
   <input type="submit" value="Add Card" class="btn btn-primary">
-</form>
+</form> -->
 
-<div class="col-md-9">
-  <h2>Cards</h2>
-  <table class="table">
+<div class="fileMenu">
+  <h2>List of Cards</h2>
+  <table class="fileTable">
        <thead>
          <tr>
-           <th>Title</th>
-           <th>Year</th>
-           <th>Read?</th>
-           <th></th>
+           <th class="col-title">Title</th>
+           <th class="col-year">Year</th>
+           <th class="col-read">Read?</th>
+           <th class="col-remove">Remove</th>
          </tr>
        </thead>
 
        <tbody>
          {{#each model as |card|}}
          <tr>
-           <td>{{card.title}}</td>
+           <td {{action "viewCard" card on="click"}}>{{card.title}}</td>
            <td>{{card.year}}</td>
            <td {{action "toggleCardRead" card on="click"}}>
                 {{#if card.isRead}}
@@ -46,4 +46,12 @@
         {{/each}}
       </tbody>
     </table>
+  </div>
+
+  <div class="cardDisplay">
+    <h2> Current Card</h2>
+    <div id="cardform">
+      <h3 class="cardTitle">Title</h3>
+      <h4 class="cardYear">Year</h4>
+    </div>
   </div>

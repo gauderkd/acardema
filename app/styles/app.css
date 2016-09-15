@@ -1,3 +1,6 @@
+/*
+  Application.hbs
+*/
 #appTitle {
   color: grey;
   text-align: center;
@@ -24,3 +27,40 @@ a, a:link, a:visited, a:focus, a:hover, a:active {
   text-decoration: none;
   color: grey;
 }
+
+/*
+  cardview.hbs
+*/
+th, td {
+  text-align: center;
+}
+
+.fileMenu {
+  width:100%;
+}
+
+.fileTable {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+/*Column Sizes*/
+.col-remove, .col-read {
+  width: 50px;
+}
+.col-year {
+  width:100px;
+}
+
+/*Table Borders*/
+td + td,
+th + th { border-left: 1px solid lightgrey; }
+
+td,
+th { padding: 5px; }
+
+
+// IE7
+tr + tr > td,
+tr + tr > th { border-top: 1px solid black; }

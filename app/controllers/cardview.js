@@ -28,6 +28,13 @@ export default Ember.Controller.extend({
           card.set('isRead',false);
         }
         card.save();
+    },
+
+    viewCard(card) {
+      var title = card.get('title');
+      var year = card.get('year');
+      Ember.$('.cardTitle').text(title);
+      Ember.$('.cardYear').text(year);
     }
   }
 });
