@@ -1,0 +1,49 @@
+<h2>Create A Card</h2>
+<form {{action "createNewCard" on="submit"}}>
+  <div class="form-group">
+    <label>Title</label>
+    {{input value=title class="form-control"}}
+    <label>Year</label>
+    {{input value=year class="form-control"}}
+  </div>
+  <div class="checkbox">
+    <label>
+      {{input type="checkbox" name="isRead" checked=isRead}}
+      Read?
+    </label>
+  </div>
+  <input type="submit" value="Add Card" class="btn btn-primary">
+</form>
+
+<div class="col-md-9">
+  <h2>Cards</h2>
+  <table class="table">
+       <thead>
+         <tr>
+           <th>Title</th>
+           <th>Year</th>
+           <th>Read?</th>
+           <th></th>
+         </tr>
+       </thead>
+
+       <tbody>
+         {{#each model as |card|}}
+         <tr>
+           <td>{{card.title}}</td>
+           <td>{{card.year}}</td>
+           <td {{action "toggleCardRead" card on="click"}}>
+                {{#if card.isRead}}
+                 &#x2713;
+                 {{else}}
+                 &#x2717;
+                 {{/if}}
+             </td>
+          <td {{action "deleteCard" card on="click"}}>
+            x
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
