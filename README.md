@@ -1,5 +1,9 @@
 # Acardema
 
+Initial design based off this post by [https://teamgaslight.com](https://teamgaslight.com/blog/offline-web-applications-with-couchdb-pouchdb-and-ember-cli).
+
+This app is build on Ember.js, CouchDB and PouchDB.
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
