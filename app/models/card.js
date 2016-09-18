@@ -6,12 +6,13 @@ export default DS.Model.extend({
   year        : DS.attr('string'),
   // Study
   abstract    : DS.attr('string'),
-  // hypothesis  : DS.attr('string'),
-  // methods     : DS.attr('string'),
-  // results     : DS.attr('string'),
-  // conclusion  : DS.attr('string'),
-  // // Extra
-  // notes       : DS.attr('string'),
-  isRead      : DS.attr('boolean'),
+  intro       : DS.attr('string'),
+  hypothesis  : DS.attr('string'),
+  methods     : DS.attr('string'),
+  results     : DS.attr('string'),
+  conclusion  : DS.attr('string'),
+  // Extra
+  notes       : DS.attr('string'),
+  cardID      : DS.attr('string'),
   rev         : DS.attr('string')
 });

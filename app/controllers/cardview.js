@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
+
 export default Ember.Controller.extend({
   actions: {
-
     openCardCreator() {
       Ember.$('.createStart').hide();
       Ember.$('.slotDisplay').hide();
@@ -12,10 +12,59 @@ export default Ember.Controller.extend({
     },
 
     cancelNewCard() {
+      // Empty Forms
       this.set('title', '');
       this.set('year', '');
+      this.set('authors', '');
       this.set('abstract', '');
-      this.set('isRead', false);
+      this.set('intro', '');
+      this.set('hypothesis', '');
+      this.set('methods', '');
+      this.set('results', '');
+      this.set('conclusion', '');
+      this.set('notes', '');
+
+      Ember.$('.createStart').css("display","inline-block");
+      Ember.$('.slotDisplay').css("display","table-cell");
+      Ember.$('.createSubmit').hide();
+      Ember.$('.slotCreate').hide();
+      Ember.$('.createCancel').hide();
+      Ember.$('.editCard').css("display","table-cell");
+      Ember.$('.saveCard').hide();
+    },
+
+    createNewCard() {
+      // Generate ID
+      //TODO Check all id's for identicals
+      var newID ='_' + Math.random().toString(36).substr(2, 9);
+
+      // Create new card with items
+      var card = this.store.createRecord("card", {
+        title: this.get('title'),
+        year: this.get('year'),
+        authors: this.get('authors'),
+        abstract: this.get('abstract'),
+        intro: this.get('intro'),
+        hypothesis: this.get('hypothesis'),
+        methods: this.get('methods'),
+        results: this.get('results'),
+        conclusion: this.get('conclusion'),
+        notes: this.get('notes'),
+        cardID: newID
+      });
+
+      card.save();
+      // Empty Forms
+      this.set('title', '');
+      this.set('year', '');
+      this.set('authors', '');
+      this.set('abstract', '');
+      this.set('intro', '');
+      this.set('hypothesis', '');
+      this.set('methods', '');
+      this.set('results', '');
+      this.set('conclusion', '');
+      this.set('notes', '');
 
       Ember.$('.createStart').css("display","inline-block");
       Ember.$('.slotDisplay').css("display","table-cell");
@@ -24,25 +73,73 @@ export default Ember.Controller.extend({
       Ember.$('.createCancel').hide();
     },
 
-    createNewCard() {
-      var card = this.store.createRecord("card", {
-        title: this.get('title'),
-        year: this.get('year'),
-        abstract: this.get('abstract'),
-        isRead: this.get('isRead')
-      });
-      card.save();
+    editSelectedCard(card) {
+      // Load ID
+      var currentID = card.get('cardID');
+      // Hide display and show creator boxes
+      Ember.$('.createStart').hide();
+      Ember.$('.slotDisplay').hide();
+      Ember.$('.createSubmit').hide();
+      Ember.$('.createCancel').css("display","inline-block");
+      Ember.$('.slotCreate').css("display","table-cell");
+      Ember.$('.editCard').hide();
+      Ember.$('.saveCard.'+currentID).css("display","table-cell");
 
+      // Fill creator boxes with card's files
+      var title = card.get('title');
+      var year = card.get('year');
+      var authors = card.get('authors');
+      var abstract = card.get('abstract');
+      var intro = card.get('intro');
+      var hypothesis = card.get('hypothesis');
+      var methods = card.get('methods');
+      var results = card.get('results');
+      var conclusion = card.get('conclusion');
+      var notes = card.get('notes');
+
+      this.set('title', title);
+      this.set('year', year);
+      this.set('authors', authors);
+      this.set('abstract', abstract);
+      this.set('intro', intro);
+      this.set('hypothesis', hypothesis);
+      this.set('methods', methods);
+      this.set('results', results);
+      this.set('conclusion', conclusion);
+      this.set('notes', notes);
+    },
+
+    saveSelectedCard(card) {
+      // Set new information
+      card.set('title',this.get('title'));
+      card.set('year',this.get('year'));
+      card.set('authors',this.get('authors'));
+      card.set('abstract',this.get('abstract'));
+      card.set('intro',this.get('intro'));
+      card.set('hypothesis',this.get('hypothesis'));
+      card.set('methods',this.get('methods'));
+      card.set('results',this.get('results'));
+      card.set('conclusion',this.get('conclusion'));
+      card.set('notes',this.get('notes'));
+      card.save();
+      // Empty Forms
       this.set('title', '');
       this.set('year', '');
+      this.set('authors', '');
       this.set('abstract', '');
-      this.set('isRead', false);
-
+      this.set('intro', '');
+      this.set('hypothesis', '');
+      this.set('methods', '');
+      this.set('results', '');
+      this.set('conclusion', '');
+      this.set('notes', '');
       Ember.$('.createStart').css("display","inline-block");
       Ember.$('.slotDisplay').css("display","table-cell");
       Ember.$('.createSubmit').hide();
       Ember.$('.slotCreate').hide();
       Ember.$('.createCancel').hide();
+      Ember.$('.editCard').css("display","table-cell");
+      Ember.$('.saveCard').hide();
     },
 
     deleteCard(card) {
@@ -67,10 +164,24 @@ export default Ember.Controller.extend({
     viewCard(card) {
       var title = card.get('title');
       var year = card.get('year');
+      var authors = card.get('authors');
       var abstract = card.get('abstract');
+      var intro = card.get('intro');
+      var hypothesis = card.get('hypothesis');
+      var methods = card.get('methods');
+      var results = card.get('results');
+      var conclusion = card.get('conclusion');
+      var notes = card.get('notes');
       Ember.$('.cardTitle').text(title);
+      Ember.$('.cardAuthors').text(authors);
       Ember.$('.cardYear').text(year);
       Ember.$('.cardAbstract').text(abstract);
+      Ember.$('.cardIntro').text(intro);
+      Ember.$('.cardHypothesis').text(hypothesis);
+      Ember.$('.cardMethods').text(methods);
+      Ember.$('.cardResults').text(results);
+      Ember.$('.cardConclusion').text(conclusion);
+      Ember.$('.cardNotes').text(notes);
     }
   }
 });

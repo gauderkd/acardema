@@ -41,24 +41,32 @@ th, td {
 
 .fileTable {
   width: 100%;
-  border: 1px solid black;
+  border: 2px solid grey;
+  border-top: 0px;
   border-collapse: collapse;
 }
 
 #cardform {
-  border: 4px solid grey;
-  border-radius: 5px;
-  padding: 10px;
 }
 
 .cardslot {
   display: table;
   table-layout: fixed;
-  width:100%;
+  width:90%;
+  margin: 15px
+}
+
+.introslot {
+  margin-left: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .cardDisplay {
-  margin-top: 25px;
+  border: 4px solid grey;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px;
 }
 
 .slotItem {
@@ -132,6 +140,21 @@ th, td {
   top:1px;
 }
 
+.saveCard {
+  display: none;
+}
+
+.tableButton {
+  width: 40px;
+  border-radius: 8px;
+  height: 20px;
+  margin-top: 0px;
+  padding: 1px;
+  text-align: center;
+  vertical-align: middle;
+  border: 0px;
+}
+
 .createSubmit {
   display: none;
 }
@@ -140,10 +163,6 @@ th, td {
   display:none;
 }
 
-
-.abstractspace {
-  margin: 10px;
-}
 
 
 /*Column Sizes*/
@@ -155,6 +174,12 @@ th, td {
 }
 .col-author {
   width: 150px;
+}
+.col-edit {
+  width: 40px;
+}
+.titleButton {
+  cursor:pointer;
 }
 
 /*Table Borders*/
