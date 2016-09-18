@@ -1,32 +1,10 @@
-
-{{!--<h2>Create A Card</h2>
-<form {{action "createNewCard" on="submit"}}>
-  <div class="form-group">
-    <label>Title</label>
-
-    <label>Year</label>
-
-    <label>Abstract</label>
-
-  </div>
-  <div class="checkbox">
-    <label>
-      {{input type="checkbox" name="isRead" checked=isRead}}
-      Read?
-    </label>
-  </div>
-  <input type="submit" value="Add Card" class="btn btn-primary">
-</form>
---}}
-
 <div class="fileMenu">
-  <h2>List of Cards</h2>
   <table class="fileTable">
        <thead>
          <tr>
            <th class="col-title">Title</th>
            <th class="col-year">Year</th>
-           <th class="col-read">Read?</th>
+           <th class="col-author">Authors</th>
            <th class="col-remove">Remove</th>
          </tr>
        </thead>
@@ -36,6 +14,7 @@
          <tr>
            <td {{action "viewCard" card on="click"}}>{{card.title}}</td>
            <td>{{card.year}}</td>
+             <td>No authors yet</td>
           <td {{action "deleteCard" card on="click"}}>
             x
           </td>

@@ -147,11 +147,14 @@ th, td {
 
 
 /*Column Sizes*/
-.col-remove, .col-read {
+.col-remove {
   width: 50px;
 }
 .col-year {
   width:100px;
+}
+.col-author {
+  width: 150px;
 }
 
 /*Table Borders*/
