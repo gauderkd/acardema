@@ -1,12 +1,13 @@
-<h2>Create A Card</h2>
+
+{{!--<h2>Create A Card</h2>
 <form {{action "createNewCard" on="submit"}}>
   <div class="form-group">
     <label>Title</label>
-    {{input value=title class="form-control"}}
+
     <label>Year</label>
-    {{input value=year class="form-control"}}
+
     <label>Abstract</label>
-    {{input value=abstract class="form-control"}}
+
   </div>
   <div class="checkbox">
     <label>
@@ -16,6 +17,7 @@
   </div>
   <input type="submit" value="Add Card" class="btn btn-primary">
 </form>
+--}}
 
 <div class="fileMenu">
   <h2>List of Cards</h2>
@@ -34,13 +36,6 @@
          <tr>
            <td {{action "viewCard" card on="click"}}>{{card.title}}</td>
            <td>{{card.year}}</td>
-           <td {{action "toggleCardRead" card on="click"}}>
-                {{#if card.isRead}}
-                 &#x2713;
-                 {{else}}
-                 &#x2717;
-                 {{/if}}
-             </td>
           <td {{action "deleteCard" card on="click"}}>
             x
           </td>
@@ -49,12 +44,27 @@
       </tbody>
     </table>
   </div>
-
+<div {{action "openCardCreator" on="click"}} class="createButton createStart button">Create Card</div>
+<div {{action "createNewCard" on="click"}} class="createButton createSubmit button">Submit</div>
+<div {{action "cancelNewCard" on="click"}} class="createButton createCancel button">Cancel</div>
   <div class="cardDisplay">
-    <h2> Current Card</h2>
-    <div id="cardform">
-      <h3 class="cardTitle">Title</h3>
-      <h4 class="cardYear">Year</h4>
-      <p class="cardAbstract">Abstract</p>
-    </div>
+      <div id="cardform">
+          <div class="titlespace cardslot">
+              <h3 class="cardTitle slotItem slotDisplay">Title</h3>
+              <h5 class="slotItem slotLabel slotCreate">Title: </h5>{{textarea value=title class="slotCreate slotItem slotLine createBox"}}
+          </div>
+          <div class="yearsspace cardslot">
+            <h4 class="cardYear slotItem slotDisplay ">Year</h4>
+              <h5 class="slotItem slotLabel slotCreate">Year: </h5>{{textarea value=year class="slotCreate slotItem slotLine slotShort createBox"}}
+          </div>
+          <div class="authorspace cardslot">
+            <h4 class="cardAuthors slotItem slotDisplay">Authors</h4>
+              <h5 class="slotItem slotLabel slotCreate">Authors: </h5>{{textarea value=authors class="slotCreate slotItem slotLine createBox"}}
+          </div>
+          <div class="abstractspace cardslot">
+            <h5 class="slotItem slotLabel">Abstract: </h5><p class="cardAbstract slotItem slotDisplay"></p>
+          {{textarea value=abstract class="slotCreate slotItem createBox"}}
+          </div>
+      </div>
   </div>
+
