@@ -4,11 +4,11 @@ Initial design based off this post by [https://teamgaslight.com](https://teamgas
 
 This app is build on Ember.js, CouchDB and PouchDB.
 
-<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/nodejs-logo.png" height="80"/>
-<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/ember-logo.png" height="80"/>
-<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/pouchdb-logo.png" height="80"/>
-<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/sass-logo.png" height="80"/>
-<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/fontawesome-logo.png" height="80"/>
+<a href="https://nodejs.org/en/"><img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/nodejs-logo.png" height="80"/></a>
+<a href="http://emberjs.com"><img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/ember-logo.png" height="80"/></a>
+<a href="https://pouchdb.com"><img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/pouchdb-logo.png" height="80"/></a>
+<a href="http://sass-lang.com"><img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/sass-logo.png" height="80"/></a>
+<a href="http://fontawesome.io"><img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/fontawesome-logo.png" height="80"/></a>
 
 
 This README outlines the details of collaborating on this Ember application.
