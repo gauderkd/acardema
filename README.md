@@ -4,6 +4,13 @@ Initial design based off this post by [https://teamgaslight.com](https://teamgas
 
 This app is build on Ember.js, CouchDB and PouchDB.
 
+<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/nodejs-logo.png" height="80"/>
+<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/ember-logo.png" height="80"/>
+<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/pouchdb-logo.png" height="80"/>
+<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/sass-logo.png" height="80"/>
+<img src="https://github.com/gauderkd/acardema/blob/master/readme-assets/fontawesome-logo.png" height="80"/>
+
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
