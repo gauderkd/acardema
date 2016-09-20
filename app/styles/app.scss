@@ -1,3 +1,5 @@
+$main-color: #ececec;
+
 /*
   Application.hbs
 */
@@ -67,6 +69,7 @@ th, td {
   border-radius: 5px;
   padding: 10px;
   margin: 15px;
+  background: $main-color;
 }
 
 .slotItem {
