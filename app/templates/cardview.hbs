@@ -9,11 +9,10 @@
              <th class="col-edit">Edit</th>
          </tr>
        </thead>
-
        <tbody>
          {{#each model as |card|}}
-         <tr>
-           <td {{action "viewCard" card on="click"}} class="titleButton">{{fa-icon "paperclip"}} {{card.title}}</td>
+         <tr class="{{card.cardID}}_row listRow">
+           <td {{action "viewCard" card on="click"}} class="titleButton {{card.cardID}}">{{fa-icon "paperclip"}} {{card.title}}</td>
            <td>{{card.year}}</td>
              <td>{{card.authors}}</td>
           <td {{action "deleteCard" card on="click"}}>
@@ -31,7 +30,6 @@
 <div {{action "openCardCreator" on="click"}} class="createButton createStart button">Create Card</div>
 <div {{action "createNewCard" on="click"}} class="createButton createSubmit button">Submit</div>
 <div {{action "cancelNewCard" on="click"}} class="createButton createCancel button">Cancel</div>
-
   <div class="cardDisplay">
       <div id="cardform">
           <div class="titlespace cardslot introslot">
@@ -98,4 +96,3 @@
           </div>
       </div>
   </div>
-

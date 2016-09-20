@@ -183,6 +183,11 @@ export default Ember.Controller.extend({
       var results = card.get('results');
       var conclusion = card.get('conclusion');
       var notes = card.get('notes');
+      var currentID = card.get('cardID');
+      // Indicate on list
+      Ember.$('.listRow').removeClass('selectedButton');
+      Ember.$('.'+currentID+'_row').addClass('selectedButton');
+
       // Original method, replacing text in their respective boxes
       Ember.$('.cardTitle').text(title);
       Ember.$('.cardAuthors').text(authors);
