@@ -91,13 +91,15 @@ th, td {
 
 .createBox {
   width: 90%;
+  height: 90px;
 }
 .slotLine {
-  height:15px;
+  height:30px;
   width: 90%;
 }
 .slotShort {
   width: 45px;
+  height: 15px;
   resize: none;
 }
 
@@ -166,7 +168,9 @@ th, td {
   display:none;
 }
 
-
+.hiddenTextBox {
+  display: none !important;
+}
 
 /*Column Sizes*/
 .col-remove {

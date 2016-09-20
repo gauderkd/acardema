@@ -35,46 +35,65 @@
   <div class="cardDisplay">
       <div id="cardform">
           <div class="titlespace cardslot introslot">
-              <h2 class="cardTitle slotItem slotDisplay">Title</h2>
-              <h2 class="slotItem slotLabel slotCreate">Title: </h2>
+              <h1 class="cardTitle slotItem slotDisplay">Title</h1>
+              <h1 class="slotItem slotLabel slotCreate">Title: </h1>
             {{textarea value=title class="slotCreate slotItem slotLine createBox"}}
           </div>
           <div class="yearsspace cardslot introslot">
-            <h4 class="cardYear slotItem slotDisplay ">Year</h4>
-              <h4 class="slotItem slotLabel slotCreate">Year: </h4>
+            <h3 class="cardYear slotItem slotDisplay ">Year</h3>
+              <h3 class="slotItem slotLabel slotCreate">Year: </h3>
             {{textarea value=year class="slotCreate slotItem slotLine slotShort createBox"}}
           </div>
           <div class="authorspace cardslot introslot">
-            <h4 class="cardAuthors slotItem slotDisplay">Authors</h4>
-              <h4 class="slotItem slotLabel slotCreate">Authors: </h4>
+            <h2 class="cardAuthors slotItem slotDisplay">Authors</h2>
+              <h2 class="slotItem slotLabel slotCreate">Authors: </h2>
             {{textarea value=authors class="slotCreate slotItem slotLine createBox"}}
           </div>
           <div class="abstractspace cardslot">
-            <h5 class="slotItem slotLabel">Abstract: </h5><p class="cardAbstract slotItem slotDisplay"></p>
+            <h5 class="slotItem slotLabel">Abstract: </h5>
+            <div class="hiddenTextBox">{{textarea value=cardAbstractArea}}</div>
+              <div class="slotItem slotDisplay">{{markdown-to-html markdown=cardAbstractArea}}</div>
+              <!--<p class="cardAbstract slotItem slotDisplay"></p>-->
           {{textarea value=abstract class="slotCreate slotItem createBox"}}
           </div>
           <div class="introspace cardslot">
-              <h5 class="slotItem slotLabel">Intro: </h5><p class="cardIntro slotItem slotDisplay"></p>
+              <h5 class="slotItem slotLabel">Intro: </h5>
+              <div class="hiddenTextBox">{{textarea value=cardIntroArea}}</div>
+              <div class="slotItem slotDisplay">{{markdown-to-html markdown=cardIntroArea}}</div>
+              <!--<p class="cardIntro slotItem slotDisplay"></p>-->
             {{textarea value=intro class="slotCreate slotItem createBox"}}
           </div>
           <div class="hypothesisspace cardslot">
-              <h5 class="slotItem slotLabel">Hypothesis: </h5><p class="cardHypothesis slotItem slotDisplay"></p>
+              <h5 class="slotItem slotLabel">Hypothesis: </h5>
+              <p class="cardHypothesis slotItem slotDisplay"></p>
             {{textarea value=hypothesis class="slotCreate slotItem slotLine createBox"}}
           </div>
           <div class="methodsspace cardslot">
-              <h5 class="slotItem slotLabel">Methods: </h5><p class="cardMethods slotItem slotDisplay"></p>
+              <h5 class="slotItem slotLabel">Methods: </h5>
+              <div class="hiddenTextBox">{{textarea value=cardMethodsArea}}</div>
+              <div class="slotItem slotDisplay">{{markdown-to-html markdown=cardMethodsArea}}</div>
+              <!--<p class="cardMethods slotItem slotDisplay"></p>-->
             {{textarea value=methods class="slotCreate slotItem createBox"}}
           </div>
           <div class="resultsspace cardslot">
-              <h5 class="slotItem slotLabel">Results: </h5><p class="cardResults slotItem slotDisplay"></p>
+              <h5 class="slotItem slotLabel">Results: </h5>
+              <div class="hiddenTextBox">{{textarea value=cardResultsArea}}</div>
+              <div class="slotItem slotDisplay">{{markdown-to-html markdown=cardResultsArea}}</div>
+              <!--<p class="cardResults slotItem slotDisplay"></p>-->
             {{textarea value=results class="slotCreate slotItem createBox"}}
           </div>
           <div class="conclusionpace cardslot">
-              <h5 class="slotItem slotLabel">Conclusion: </h5><p class="cardConclusion slotItem slotDisplay"></p>
+              <h5 class="slotItem slotLabel">Conclusion: </h5>
+              <div class="hiddenTextBox">{{textarea value=cardConclusionArea}}</div>
+              <div class="slotItem slotDisplay">{{markdown-to-html markdown=cardConclusionArea}}</div>
+              <!--<p class="cardConclusion slotItem slotDisplay"></p>-->
             {{textarea value=conclusion class="slotCreate slotItem createBox"}}
           </div>
           <div class="notesspace cardslot">
-              <h5 class="slotItem slotLabel">Extra Notes: </h5><p class="cardNotes slotItem slotDisplay"></p>
+              <h5 class="slotItem slotLabel">Extra Notes: </h5>
+              <div class="hiddenTextBox">{{textarea value=cardExtraArea}}</div>
+              <div class="slotItem slotDisplay">{{markdown-to-html markdown=cardExtraArea}}</div>
+              <!--<p class="cardNotes slotItem slotDisplay"></p>-->
             {{textarea value=notes class="slotCreate slotItem createBox"}}
           </div>
       </div>

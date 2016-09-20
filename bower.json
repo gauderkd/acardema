@@ -6,6 +6,7 @@
     "pouchdb": "^5.4.5",
     "relational-pouch": "^1.4.4",
     "pouchdb-find": "^0.10.2",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "showdown": "^1.4.3"
   }
 }

@@ -4,14 +4,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     openCardCreator() {
-      Ember.$('.createStart').hide();
-      Ember.$('.slotDisplay').hide();
-      Ember.$('.createSubmit').css("display","inline-block");
-      Ember.$('.createCancel').css("display","inline-block");
-      Ember.$('.slotCreate').css("display","table-cell");
-    },
-
-    cancelNewCard() {
       // Empty Forms
       this.set('title', '');
       this.set('year', '');
@@ -23,6 +15,25 @@ export default Ember.Controller.extend({
       this.set('results', '');
       this.set('conclusion', '');
       this.set('notes', '');
+      Ember.$('.createStart').hide();
+      Ember.$('.slotDisplay').hide();
+      Ember.$('.createSubmit').css("display","inline-block");
+      Ember.$('.createCancel').css("display","inline-block");
+      Ember.$('.slotCreate').css("display","table-cell");
+    },
+
+    cancelNewCard() {
+      // // Empty Forms
+      // this.set('title', '');
+      // this.set('year', '');
+      // this.set('authors', '');
+      // this.set('abstract', '');
+      // this.set('intro', '');
+      // this.set('hypothesis', '');
+      // this.set('methods', '');
+      // this.set('results', '');
+      // this.set('conclusion', '');
+      // this.set('notes', '');
 
       Ember.$('.createStart').css("display","inline-block");
       Ember.$('.slotDisplay').css("display","table-cell");
@@ -122,17 +133,17 @@ export default Ember.Controller.extend({
       card.set('conclusion',this.get('conclusion'));
       card.set('notes',this.get('notes'));
       card.save();
-      // Empty Forms
-      this.set('title', '');
-      this.set('year', '');
-      this.set('authors', '');
-      this.set('abstract', '');
-      this.set('intro', '');
-      this.set('hypothesis', '');
-      this.set('methods', '');
-      this.set('results', '');
-      this.set('conclusion', '');
-      this.set('notes', '');
+      // // Empty Forms
+      // this.set('title', '');
+      // this.set('year', '');
+      // this.set('authors', '');
+      // this.set('abstract', '');
+      // this.set('intro', '');
+      // this.set('hypothesis', '');
+      // this.set('methods', '');
+      // this.set('results', '');
+      // this.set('conclusion', '');
+      // this.set('notes', '');
       Ember.$('.createStart').css("display","inline-block");
       Ember.$('.slotDisplay').css("display","table-cell");
       Ember.$('.createSubmit').hide();
@@ -172,16 +183,25 @@ export default Ember.Controller.extend({
       var results = card.get('results');
       var conclusion = card.get('conclusion');
       var notes = card.get('notes');
+      // Original method, replacing text in their respective boxes
       Ember.$('.cardTitle').text(title);
       Ember.$('.cardAuthors').text(authors);
       Ember.$('.cardYear').text(year);
-      Ember.$('.cardAbstract').text(abstract);
-      Ember.$('.cardIntro').text(intro);
+      // Ember.$('.cardAbstract').text(abstract);
+      // Ember.$('.cardIntro').text(intro);
       Ember.$('.cardHypothesis').text(hypothesis);
-      Ember.$('.cardMethods').text(methods);
-      Ember.$('.cardResults').text(results);
-      Ember.$('.cardConclusion').text(conclusion);
-      Ember.$('.cardNotes').text(notes);
+      // Ember.$('.cardMethods').text(methods);
+      // Ember.$('.cardResults').text(results);
+      // Ember.$('.cardConclusion').text(conclusion);
+      // Ember.$('.cardNotes').text(notes);
+
+      // New Method, putting text into read-only hidden text-area boxes
+      this.set('cardAbstractArea',abstract);
+      this.set('cardIntroArea',intro);
+      this.set('cardMethodsArea',methods);
+      this.set('cardResultsArea',results);
+      this.set('cardConclusionArea',conclusion);
+      this.set('cardExtraArea',notes);
     }
   }
 });
