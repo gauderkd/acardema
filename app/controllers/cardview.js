@@ -1,5 +1,6 @@
 import Ember from 'ember';
-
+import Remarkable from 'remarkable'
+var md = new Remarkable();
 
 export default Ember.Controller.extend({
   actions: {
@@ -173,6 +174,8 @@ export default Ember.Controller.extend({
     // },
 
     viewCard(card) {
+      var md = new Remarkable();
+
       var title = card.get('title');
       var year = card.get('year');
       var authors = card.get('authors');
@@ -192,21 +195,13 @@ export default Ember.Controller.extend({
       Ember.$('.cardTitle').text(title);
       Ember.$('.cardAuthors').text(authors);
       Ember.$('.cardYear').text(year);
-      // Ember.$('.cardAbstract').text(abstract);
-      // Ember.$('.cardIntro').text(intro);
-      Ember.$('.cardHypothesis').text(hypothesis);
-      // Ember.$('.cardMethods').text(methods);
-      // Ember.$('.cardResults').text(results);
-      // Ember.$('.cardConclusion').text(conclusion);
-      // Ember.$('.cardNotes').text(notes);
-
-      // New Method, putting text into read-only hidden text-area boxes
-      this.set('cardAbstractArea',abstract);
-      this.set('cardIntroArea',intro);
-      this.set('cardMethodsArea',methods);
-      this.set('cardResultsArea',results);
-      this.set('cardConclusionArea',conclusion);
-      this.set('cardExtraArea',notes);
+      Ember.$('.cardAbstract').html(md.render(abstract));
+      Ember.$('.cardIntro').html(md.render(intro));
+      Ember.$('.cardHypothesis').html(md.render(hypothesis));
+      Ember.$('.cardMethods').html(md.render(methods));
+      Ember.$('.cardResults').html(md.render(results));
+      Ember.$('.cardConclusion').html(md.render(conclusion));
+      Ember.$('.cardNotes').html(md.render(notes));
     }
   }
 });

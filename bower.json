@@ -7,6 +7,8 @@
     "relational-pouch": "^1.4.4",
     "pouchdb-find": "^0.10.2",
     "font-awesome": "~4.5.0",
-    "showdown": "^1.4.3"
+    "showdown": "^1.4.3",
+    "remarkable": "^1.6.2",
+    "highlightjs": "^9.6.0"
   }
 }
