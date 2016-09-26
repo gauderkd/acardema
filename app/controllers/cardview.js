@@ -1,6 +1,5 @@
 import Ember from 'ember';
-import Remarkable from 'remarkable'
-var md = new Remarkable();
+import Remarkable from 'remarkable';
 
 export default Ember.Controller.extend({
   actions: {
@@ -176,32 +175,24 @@ export default Ember.Controller.extend({
     viewCard(card) {
       var md = new Remarkable();
 
-      var title = card.get('title');
-      var year = card.get('year');
-      var authors = card.get('authors');
-      var abstract = card.get('abstract');
-      var intro = card.get('intro');
-      var hypothesis = card.get('hypothesis');
-      var methods = card.get('methods');
-      var results = card.get('results');
-      var conclusion = card.get('conclusion');
-      var notes = card.get('notes');
-      var currentID = card.get('cardID');
-      // Indicate on list
+      var listOfAttributes = Object.keys(card.toJSON());
+
+      listOfAttributes.forEach(function(attr) {
+        if (card.get(attr).length > 0) {
+          Ember.$('.'+attr+'space').show();
+          if (attr === "title" || attr === "year" || attr === "authors") {
+            Ember.$('.card'+attr).text(card.get(attr));
+          } else {
+            Ember.$('.card'+attr).html(md.render(card.get(attr).split('.').shift()));
+          }
+        } else {
+          Ember.$('.'+attr+'space').hide();
+        }
+      });
+
+    // Indicate on list
       Ember.$('.listRow').removeClass('selectedButton');
       Ember.$('.'+currentID+'_row').addClass('selectedButton');
-
-      // Original method, replacing text in their respective boxes
-      Ember.$('.cardTitle').text(title);
-      Ember.$('.cardAuthors').text(authors);
-      Ember.$('.cardYear').text(year);
-      Ember.$('.cardAbstract').html(md.render(abstract));
-      Ember.$('.cardIntro').html(md.render(intro));
-      Ember.$('.cardHypothesis').html(md.render(hypothesis));
-      Ember.$('.cardMethods').html(md.render(methods));
-      Ember.$('.cardResults').html(md.render(results));
-      Ember.$('.cardConclusion').html(md.render(conclusion));
-      Ember.$('.cardNotes').html(md.render(notes));
     }
   }
 });
