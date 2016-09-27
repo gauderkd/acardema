@@ -30,56 +30,89 @@
 <div {{action "openCardCreator" on="click"}} class="createButton createStart button">Create Card</div>
 <div {{action "createNewCard" on="click"}} class="createButton createSubmit button">Submit</div>
 <div {{action "cancelNewCard" on="click"}} class="createButton createCancel button">Cancel</div>
+<!-- Outside container for Cards -->
   <div class="cardDisplay">
+    <!-- Main container for cards (card sections go in here)-->
       <div id="cardform">
+        <!-- Intro slots -->
           <div class="titlespace cardslot introslot">
               <h1 class="cardtitle slotItem slotDisplay">Title</h1>
               <h1 class="slotItem slotLabel slotCreate">Title: </h1>
-            {{textarea value=title class="slotCreate slotItem slotLine createBox"}}
+              {{textarea value=title class="slotCreate slotItem slotLine createBox"}}
           </div>
           <div class="yearsspace cardslot introslot">
             <h3 class="cardyear slotItem slotDisplay ">Year</h3>
-              <h3 class="slotItem slotLabel slotCreate">Year: </h3>
+            <h3 class="slotItem slotLabel slotCreate">Year: </h3>
             {{textarea value=year class="slotCreate slotItem slotLine slotShort createBox"}}
           </div>
           <div class="authorspace cardslot introslot">
             <h2 class="cardauthors slotItem slotDisplay">Authors</h2>
-              <h2 class="slotItem slotLabel slotCreate">Authors: </h2>
+            <h2 class="slotItem slotLabel slotCreate">Authors: </h2>
             {{textarea value=authors class="slotCreate slotItem slotLine createBox"}}
           </div>
+          <!-- Body slots -->
           <div class="abstractspace cardslot">
             <h5 class="slotItem slotLabel">Abstract: </h5>
-              <div class="cardabstract slotItem slotDisplay"></div>
-          {{textarea value=abstract class="slotCreate slotItem createBox"}}
+            <div class="cardabstract slotItem slotDisplay">
+              <div class="cardabstract_sen cardsentence"></div>
+              <div class="cardabstract_full cardfulltext"></div>
+            </div>
+            {{textarea value=abstract class="slotCreate slotItem createBox"}}
           </div>
           <div class="introspace cardslot">
-              <h5 class="slotItem slotLabel">Intro: </h5>
-              <div class="cardintro slotItem slotDisplay"></div>
+            <h5 class="slotItem slotLabel">Intro: </h5>
+            <div class="cardintro slotItem slotDisplay">
+              <div class="cardintro_sen cardsentence"></div>
+              <div class="cardintro_full cardfulltext"></div>
+            </div>
             {{textarea value=intro class="slotCreate slotItem createBox"}}
           </div>
           <div class="hypothesisspace cardslot">
-              <h5 class="slotItem slotLabel">Hypothesis: </h5>
-              <div class="cardhypothesis slotItem slotDisplay"></div>
+            <h5 class="slotItem slotLabel">Hypothesis: </h5>
+            <div class="cardhypothesis slotItem slotDisplay">
+              <div class="cardhypothesis_sen cardsentence"></div>
+              <div class="cardhypothesis_full cardfulltext"></div>
+            </div>
             {{textarea value=hypothesis class="slotCreate slotItem slotLine createBox"}}
           </div>
           <div class="methodsspace cardslot">
-              <h5 class="slotItem slotLabel">Methods: </h5>
-              <div class="cardmethods slotItem slotDisplay"></div>
+            <h5 class="slotItem slotLabel">Methods: </h5>
+            <div class="cardmethods slotItem slotDisplay">
+              <div class="cardmethods_sen cardsentence"></div>
+              <div class="cardmethods_full cardfulltext"></div>
+            </div>
             {{textarea value=methods class="slotCreate slotItem createBox"}}
           </div>
           <div class="resultsspace cardslot">
-              <h5 class="slotItem slotLabel">Results: </h5>
-              <div class="cardresults slotItem slotDisplay"></div>
+            <h5 class="slotItem slotLabel">Results: </h5>
+            <div class="cardresults slotItem slotDisplay">
+              <div class="cardresults_sen cardsentence"></div>
+              <div class="cardresults_full cardfulltext"></div>
+            </div>
             {{textarea value=results class="slotCreate slotItem createBox"}}
           </div>
+          <div class="discussionspace cardslot">
+            <h5 class="slotItem slotLabel">Discussion: </h5>
+            <div class="carddiscussion slotItem slotDisplay">
+              <div class="carddiscussion_sen cardsentence"></div>
+              <div class="carddiscussion_full cardfulltext"></div>
+            </div>
+            {{textarea value=discussion class="slotCreate slotItem createBox"}}
+          </div>
           <div class="conclusionpace cardslot">
-              <h5 class="slotItem slotLabel">Conclusion: </h5>
-              <div class="cardconclusion slotItem slotDisplay"></div>
+            <h5 class="slotItem slotLabel">Conclusion: </h5>
+            <div class="cardconclusion slotItem slotDisplay">
+              <div class="cardconclusion_sen cardsentence"></div>
+              <div class="cardconclusion_full cardfulltext"></div>
+            </div>
             {{textarea value=conclusion class="slotCreate slotItem createBox"}}
           </div>
           <div class="notesspace cardslot">
-              <h5 class="slotItem slotLabel">Extra Notes: </h5>
-              <div class="cardnotes slotItem slotDisplay"></div>
+            <h5 class="slotItem slotLabel">Extra Notes: </h5>
+            <div class="cardnotes slotItem slotDisplay">
+              <div class="cardnotes_sen cardsentence"></div>
+              <div class="cardnotes_full cardfulltext"></div>
+            </div>
             {{textarea value=notes class="slotCreate slotItem createBox"}}
           </div>
       </div>
