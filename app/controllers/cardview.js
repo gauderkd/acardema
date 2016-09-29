@@ -1,6 +1,5 @@
 import Ember from 'ember';
-import Remarkable from 'remarkable'
-var md = new Remarkable();
+import Remarkable from 'remarkable';
 
 export default Ember.Controller.extend({
   actions: {
