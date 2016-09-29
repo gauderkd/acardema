@@ -2,71 +2,75 @@ import Ember from 'ember';
 import Remarkable from 'remarkable';
 import Card from '../models/card';
 
+// General functions
+
+// Set attribute names and gather into lost
+var attributes = Ember.get(Card, 'attributes');
+var attributeList = [];
+var attributeTempList = [];
+attributes.forEach(function(meta, name) {
+  window[name] = name;
+  if (name === 'cardID' || name === 'rev') {} else {
+    attributeList.push(name);
+    attributeTempList.push('temp'+name);
+  }
+});
+
 export default Ember.Controller.extend({
   actions: {
     openCardCreator() {
       // Empty Forms
-      var attributes = Ember.get(Card, 'attributes');
-
-      attributes.forEach(function(meta, name) {
-        if (name === 'cardID' || name === 'rev') {
-
-        } else {
-          Ember.$('.'+name+'space').css('display','table');
-        }
+      Ember.$('.createBox').val('');
+      // Display All forms
+      attributeList.forEach(function (name) {
+        Ember.$('.'+name+'space').css('display','table');
       });
-      // Empty Forms
-      this.set('title', '');
-      this.set('year', '');
-      this.set('authors', '');
-      this.set('abstract', '');
-      this.set('intro', '');
-      this.set('hypothesis', '');
-      this.set('methods', '');
-      this.set('results', '');
-      this.set('discussion', '');
-      this.set('conclusion', '');
-      this.set('notes', '');
       Ember.$('.createStart').hide();
       Ember.$('.slotDisplay').hide();
       Ember.$('.createSubmit').css("display","inline-block");
       Ember.$('.createCancel').css("display","inline-block");
       Ember.$('.slotCreate').css("display","table-cell");
     },
+
     viewCard: function(card) {
+      // Set up Remarkable Markdown
       var md = new Remarkable();
+      // Grab Current ID
       var currentID = card.get('cardID');
-      var listOfAttributes = Object.keys(card.toJSON());
 
-      listOfAttributes.forEach(function(attr) {
+      // Hide full-text Areas
+      Ember.$('.cardfulltext').hide();
+      // Hide all Cardslots
+      Ember.$('.cardslot').hide();
+      // Set all Cardslot Cursors to default
+      Ember.$('.cardsentence').css('cursor','default');
 
-        if (attr === 'cardID' || attr === 'rev') {} else {
+
+      attributeList.forEach(function(attr) {
         // unbind click event
-        Ember.$('.cardfulltext').hide();
         Ember.$('.card'+attr+'_sen').unbind('click');
-
-        if (card.get(attr).length > 0) {
+        // If card section has text, display and continue. Otherwise, do nothing.
+        if (card.get(attr) === null || card.get(attr).length <= 0) {} else {
           Ember.$('.'+attr+'space').show();
+          // If this is the title, year, or authors, use .text()
           if (attr === "title" || attr === "year" || attr === "authors") {
             Ember.$('.card'+attr).text(card.get(attr));
           } else {
+            // Otherwise, use html and md.render. Only show up to first period.
             Ember.$('.card'+attr+'_sen').html(md.render(card.get(attr).split('.').shift()));
+            // If there is any text after the first period, place that in full section and make it active
             if (card.get(attr).split('.').pop().length > 0) {
               Ember.$('.card'+attr+'_full').html(md.render(card.get(attr).split('.').pop()));
               // Add read more indicator
               Ember.$('.card'+attr+'_sen').append('<div class="cardReadMore">+++</div>');
               Ember.$('.card'+attr+'_sen').css('cursor','pointer');
+              // Add click event for slide toggling the full-text area
               Ember.$('.card'+attr+'_sen').click(function() {
                 Ember.$(this).siblings().slideToggle();
               });
-            } else {
-              Ember.$('.card'+attr+'_sen').css('cursor','default');
             }
           }
-        } else {
-          Ember.$('.'+attr+'space').hide();
         }
-      }
       });
 
     // Indicate on list
@@ -75,18 +79,9 @@ export default Ember.Controller.extend({
     },
 
     cancelNewCard() {
-      // // Empty Forms
-      // this.set('title', '');
-      // this.set('year', '');
-      // this.set('authors', '');
-      // this.set('abstract', '');
-      // this.set('intro', '');
-      // this.set('hypothesis', '');
-      // this.set('methods', '');
-      // this.set('results', '');
-      // this.set('conclusion', '');
-      // this.set('notes', '');
-
+      // Empty Forms
+      Ember.$('.createBox').val('');
+      // Change button displays
       Ember.$('.createStart').css("display","inline-block");
       Ember.$('.slotDisplay').css("display","table-cell");
       Ember.$('.createSubmit').hide();
@@ -101,11 +96,29 @@ export default Ember.Controller.extend({
       //TODO Check all id's for identicals
       var newID ='_' + Math.random().toString(36).substr(2, 9);
 
+      // Auto-period Sentences
+      var temptitle = this.get('title');
+      var tempyear = this.get('year');
+      var tempauthors = this.get('authors');
+      var tempabstract = this.get('abstract');
+      if (tempname.length <= 0 || tempname === null) {} else {
+        if (tempname.slice(-1) !== '.') {
+          tempname = tempname + '.';
+        }
+      }
+      var tempintro = this.get('intro');
+      var temphypothesis = this.get('hypothesis');
+      var tempmethods = this.get('methods');
+      var tempresults = this.get('results');
+      var tempdiscussion = this.get('discussion');
+      var tempconclusion = this.get('conclusion');
+      var tempnotes =  this.get('notes');
+
       // Create new card with items
       var card = this.store.createRecord("card", {
-        title: this.get('title'),
+        title: temptitle,
         year: this.get('year'),
-        authors: this.get('authors'),
+        authors: tempabstract,
         abstract: this.get('abstract'),
         intro: this.get('intro'),
         hypothesis: this.get('hypothesis'),
@@ -119,17 +132,7 @@ export default Ember.Controller.extend({
 
       card.save();
       // Empty Forms
-      this.set('title', '');
-      this.set('year', '');
-      this.set('authors', '');
-      this.set('abstract', '');
-      this.set('intro', '');
-      this.set('hypothesis', '');
-      this.set('methods', '');
-      this.set('results', '');
-      this.set('discussion', '');
-      this.set('conclusion', '');
-      this.set('notes', '');
+      Ember.$('.createBox').val('');
 
       Ember.$('.createStart').css("display","inline-block");
       Ember.$('.slotDisplay').css("display","table-cell");
