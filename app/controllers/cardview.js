@@ -1,7 +1,5 @@
 import Ember from 'ember';
 import Remarkable from 'remarkable';
-<<<<<<< HEAD
-=======
 import Card from '../models/card';
 
 // General functions
@@ -17,7 +15,7 @@ attributes.forEach(function(meta, name) {
     attributeTempList.push('temp'+name);
   }
 });
->>>>>>> a3e08134d1ec8fe98713ab26ef2a2bd594aca85e
+
 
 export default Ember.Controller.extend({
   actions: {
