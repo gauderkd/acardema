@@ -13,6 +13,7 @@ export default DS.Model.extend({
   hypothesis  : DS.attr('string'),
   methods     : DS.attr('string'),
   results     : DS.attr('string'),
+  discussion  : DS.attr('string'),
   conclusion  : DS.attr('string'),
   // Extra
   notes       : DS.attr('string'),
